@@ -1,112 +1,80 @@
-# grantboard-backend
+# 🎨 grantboard-frontend
 
-NestJS REST API for GrantBoard — a decentralized grant management platform built on Stellar.
+> React frontend for GrantBoard — a decentralized grant management platform built on Stellar.
 
-## Overview
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Built With](https://img.shields.io/badge/built%20with-React%2019%20%7C%20TypeScript%20%7C%20Tailwind-informational)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
-This backend serves as the off-chain layer for GrantBoard, handling grant data, applications, and milestone tracking via a REST API.
+---
 
-## API Endpoints
+## 📖 Table of Contents
 
-| Method | Endpoint                        | Description               |
-| ------ | ------------------------------- | ------------------------- |
-| `GET`  | `/grants`                       | Get all grants            |
-| `GET`  | `/grants/:id`                   | Get a single grant        |
-| `POST` | `/grants`                       | Create a new grant        |
-| `POST` | `/grants/:id/apply`             | Apply for a grant         |
-| `POST` | `/grants/:id/select`            | Select an applicant       |
-| `POST` | `/grants/:id/approve-milestone` | Approve current milestone |
+- [Overview](#-overview)
+- [Pages](#-pages)
+- [Tech Stack](#️-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-## Project Structure
+---
 
-src/
-├── grants/
-│ ├── dto/
-│ │ └── create-grant.dto.ts # Request validation
-│ ├── grants.controller.ts # Route handlers
-│ ├── grants.service.ts # Business logic
-│ └── grants.module.ts # Module definition
-├── app.module.ts
-└── main.ts
+## 🌐 Overview
 
-## Getting Started
+`grantboard-frontend` is the user-facing interface for GrantBoard. It allows grant posters to publish opportunities, contributors to discover and apply for grants, and reviewers to manage applicant selection and milestone approvals — all connected to the Stellar blockchain via the [Freighter](https://www.freighter.app/) wallet.
 
-### Prerequisites
+The frontend communicates with the [grantboard-backend](https://github.com/chainboard-app/grantboard-backend) REST API and uses the Freighter API to sign and submit on-chain transactions directly from the browser.
 
-- Node.js 20+
-- pnpm
+---
 
-### Install Dependencies
+## 📄 Pages
 
-```bash
-pnpm install
+| Page | Route | Description |
+|---|---|---|
+| Home | `/` | Browse all open grants |
+| Create Grant | `/create` | Post a new grant with milestone definitions |
+| Grant Detail | `/grants/:id` | View grant details, apply, select applicants, and approve milestones |
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Role |
+|---|---|
+| React 19 | UI framework |
+| TypeScript | Type safety |
+| Tailwind CSS | Styling |
+| React Router | Client-side routing |
+| Axios | HTTP client |
+| Freighter API | Stellar wallet integration |
+
+---
+
+## 📁 Project Structure
+
 ```
-
-### Run Development Server
-
-```bash
-pnpm run start:dev
-```
-
-Server runs on `http://localhost:3001`
-
-### Build
-
-```bash
-pnpm run build
-```
-
-## Contributing
-
-1. Fork the repo
-2. Create a feature branch
-3. Make your changes
-4. Ensure the build passes with `pnpm run build`
-5. Open a pull request
-
-## License
-
-MIT
-Done?y12:26 PMPush it:
-powershellcd C:\Users\DELL\grantboard-backend
-git add README.md
-git commit -m "docs: add README"
-git push
-Done?yh12:26 PMNow move to grantboard-frontend. Open its README.md and replace everything with this:
-markdown# grantboard-frontend
-
-React frontend for GrantBoard — a decentralized grant management platform built on Stellar.
-
-## Overview
-
-This frontend provides the user interface for GrantBoard, allowing users to browse grants, post new grants, apply for grants, and track milestone progress.
-
-## Pages
-
-| Page         | Route         | Description                                                      |
-| ------------ | ------------- | ---------------------------------------------------------------- |
-| Home         | `/`           | Browse all open grants                                           |
-| Create Grant | `/create`     | Post a new grant with milestones                                 |
-| Grant Detail | `/grants/:id` | View grant details, apply, select applicants, approve milestones |
-
-## Project Structure
-
 src/
 ├── lib/
-│ └── api.ts # Axios API client
+│   └── api.ts            # Axios API client and request helpers
 ├── pages/
-│ ├── Home.tsx # Grant listing page
-│ ├── CreateGrant.tsx # Grant creation form
-│ └── GrantDetail.tsx # Grant detail and actions
-├── App.tsx # Router setup
-└── main.tsx # Entry point
+│   ├── Home.tsx          # Grant listing and discovery
+│   ├── CreateGrant.tsx   # Grant creation form
+│   └── GrantDetail.tsx   # Grant detail, application, and milestone actions
+├── App.tsx               # Router setup and layout
+└── main.tsx              # Application entry point
+```
 
-## Getting Started
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 20+
-- pnpm
+- [Node.js](https://nodejs.org/) v20 or higher
+- [pnpm](https://pnpm.io/)
+- [Freighter Wallet](https://www.freighter.app/) browser extension (for wallet interactions)
 
 ### Install Dependencies
 
@@ -120,31 +88,30 @@ pnpm install
 pnpm run dev
 ```
 
-App runs on `http://localhost:5173`
+The app will be available at `http://localhost:5173`.
 
-### Build
+### Build for Production
 
 ```bash
 pnpm run build
 ```
 
-## Tech Stack
+---
 
-- React 19
-- TypeScript
-- Tailwind CSS
-- React Router
-- Axios
-- Freighter API (Stellar wallet)
+## 🤝 Contributing
 
-## Contributing
+Contributions are welcome — UI improvements, new pages, accessibility fixes, wallet integration work, and more.
 
-1. Fork the repo
-2. Create a feature branch
-3. Make your changes
-4. Ensure the build passes with `pnpm run build`
-5. Open a pull request
+1. **Fork** the repository
+2. **Create** a feature branch: `git checkout -b feature/your-feature`
+3. **Make** your changes and ensure the build passes: `pnpm run build`
+4. **Commit** using conventional commits: `git commit -m "feat: describe your change"`
+5. **Open** a Pull Request against `main`
 
-## License
+Please keep PRs focused and link any related issues in the description.
 
-MIT
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
